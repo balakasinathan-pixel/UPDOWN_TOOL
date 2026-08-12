@@ -5,9 +5,7 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>UPDOWN_TOOL</RootNamespace>
-    <StartupObject>UPDOWN_TOOL.My.MyApplication</StartupObject>
-    <OptionExplicit>On</OptionExplicit>
-    <OptionStrict>On</OptionStrict>
+    <StartupObject>UPDOWN_TOOL.Program</StartupObject>
   </PropertyGroup>
 
 </Project>
