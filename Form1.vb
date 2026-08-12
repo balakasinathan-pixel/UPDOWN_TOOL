@@ -15,11 +15,18 @@ Public Class Form1
     Private currentIndex As Integer = -1
 
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    '========================================================
+    ' FORM CONSTRUCTOR
+    '========================================================
+
+    Public Sub New()
+
+        InitializeComponent()
 
         Me.Text = "UP DOWN Option Tool"
 
         Me.WindowState = FormWindowState.Maximized
+
         Me.MinimumSize = New Size(900, 600)
 
         Me.BackColor = Color.White
@@ -35,9 +42,9 @@ Public Class Form1
 
     Private Sub CreateUI()
 
-        '----------------------------------------------------
+        '====================================================
         ' MAIN LAYOUT
-        '----------------------------------------------------
+        '====================================================
 
         Dim mainLayout As New TableLayoutPanel()
 
@@ -46,18 +53,24 @@ Public Class Form1
         mainLayout.ColumnCount = 3
         mainLayout.RowCount = 1
 
-        ' Left = 15%
-        ' Center = 70%
-        ' Right = 15%
+        ' LEFT = 15%
+        ' CENTER = 70%
+        ' RIGHT = 15%
 
         mainLayout.ColumnStyles.Add(
-            New ColumnStyle(SizeType.Percent, 15))
+            New ColumnStyle(
+                SizeType.Percent,
+                15))
 
         mainLayout.ColumnStyles.Add(
-            New ColumnStyle(SizeType.Percent, 70))
+            New ColumnStyle(
+                SizeType.Percent,
+                70))
 
         mainLayout.ColumnStyles.Add(
-            New ColumnStyle(SizeType.Percent, 15))
+            New ColumnStyle(
+                SizeType.Percent,
+                15))
 
 
         Me.Controls.Add(mainLayout)
@@ -70,33 +83,50 @@ Public Class Form1
         Dim leftPanel As New Panel()
 
         leftPanel.Dock = DockStyle.Fill
-        leftPanel.BackColor = Color.FromArgb(245, 245, 245)
 
-        mainLayout.Controls.Add(leftPanel, 0, 0)
+        leftPanel.BackColor =
+            Color.FromArgb(245, 245, 245)
+
+        mainLayout.Controls.Add(
+            leftPanel,
+            0,
+            0)
 
 
-        '----------------------------------------------------
+        '====================================================
         ' UP BUTTON
-        '----------------------------------------------------
+        '====================================================
 
         btnUp = New Button()
 
-        btnUp.Text = "↑" & Environment.NewLine & "UP"
+        btnUp.Text =
+            "↑" &
+            Environment.NewLine &
+            "UP"
 
-        btnUp.Font = New Font(
-            "Segoe UI",
-            18,
-            FontStyle.Bold)
+        btnUp.Font =
+            New Font(
+                "Segoe UI",
+                18,
+                FontStyle.Bold)
 
         btnUp.ForeColor = Color.White
-        btnUp.BackColor = Color.FromArgb(40, 180, 80)
 
-        btnUp.FlatStyle = FlatStyle.Flat
+        btnUp.BackColor =
+            Color.FromArgb(40, 180, 80)
+
+        btnUp.FlatStyle =
+            FlatStyle.Flat
+
         btnUp.FlatAppearance.BorderSize = 0
 
-        btnUp.Dock = DockStyle.Bottom
+        btnUp.Dock =
+            DockStyle.Bottom
 
-        btnUp.Height = 100
+        btnUp.Height = 110
+
+        btnUp.Cursor =
+            Cursors.Hand
 
         AddHandler btnUp.Click,
             AddressOf Up_Click
@@ -104,28 +134,40 @@ Public Class Form1
         leftPanel.Controls.Add(btnUp)
 
 
-        '----------------------------------------------------
+        '====================================================
         ' DOWN BUTTON
-        '----------------------------------------------------
+        '====================================================
 
         btnDown = New Button()
 
-        btnDown.Text = "↓" & Environment.NewLine & "DOWN"
+        btnDown.Text =
+            "↓" &
+            Environment.NewLine &
+            "DOWN"
 
-        btnDown.Font = New Font(
-            "Segoe UI",
-            18,
-            FontStyle.Bold)
+        btnDown.Font =
+            New Font(
+                "Segoe UI",
+                18,
+                FontStyle.Bold)
 
         btnDown.ForeColor = Color.White
-        btnDown.BackColor = Color.FromArgb(220, 60, 60)
 
-        btnDown.FlatStyle = FlatStyle.Flat
+        btnDown.BackColor =
+            Color.FromArgb(220, 60, 60)
+
+        btnDown.FlatStyle =
+            FlatStyle.Flat
+
         btnDown.FlatAppearance.BorderSize = 0
 
-        btnDown.Dock = DockStyle.Bottom
+        btnDown.Dock =
+            DockStyle.Bottom
 
-        btnDown.Height = 100
+        btnDown.Height = 110
+
+        btnDown.Cursor =
+            Cursors.Hand
 
         AddHandler btnDown.Click,
             AddressOf Down_Click
@@ -137,28 +179,34 @@ Public Class Form1
         ' CENTER EMPTY AREA
         '====================================================
 
-        flowPanel = New FlowLayoutPanel()
+        flowPanel =
+            New FlowLayoutPanel()
 
-        flowPanel.Dock = DockStyle.Fill
+        flowPanel.Dock =
+            DockStyle.Fill
 
-        flowPanel.BackColor = Color.White
+        flowPanel.BackColor =
+            Color.White
 
         ' IMPORTANT:
-        ' Items will go LEFT -> RIGHT
+        ' Items go LEFT -> RIGHT
 
         flowPanel.FlowDirection =
             FlowDirection.LeftToRight
 
-        ' Do not move to next line
+        ' Do NOT move items to next line
 
         flowPanel.WrapContents = False
 
-        ' Horizontal scrolling
+        ' Enable scrolling
 
         flowPanel.AutoScroll = True
 
         flowPanel.Padding =
             New Padding(30)
+
+        flowPanel.Margin =
+            New Padding(0)
 
         mainLayout.Controls.Add(
             flowPanel,
@@ -172,7 +220,8 @@ Public Class Form1
 
         Dim rightPanel As New Panel()
 
-        rightPanel.Dock = DockStyle.Fill
+        rightPanel.Dock =
+            DockStyle.Fill
 
         rightPanel.BackColor =
             Color.FromArgb(245, 245, 245)
@@ -184,13 +233,14 @@ Public Class Form1
 
 
         '====================================================
-        ' NEXT OPTION
+        ' NEXT OPTION BUTTON
         '====================================================
 
         btnNext = New Button()
 
         btnNext.Text =
-            "NEXT" & Environment.NewLine &
+            "NEXT" &
+            Environment.NewLine &
             "OPTION"
 
         btnNext.Font =
@@ -199,7 +249,8 @@ Public Class Form1
                 14,
                 FontStyle.Bold)
 
-        btnNext.ForeColor = Color.White
+        btnNext.ForeColor =
+            Color.White
 
         btnNext.BackColor =
             Color.FromArgb(50, 120, 220)
@@ -209,9 +260,13 @@ Public Class Form1
 
         btnNext.FlatAppearance.BorderSize = 0
 
-        btnNext.Dock = DockStyle.Top
+        btnNext.Dock =
+            DockStyle.Top
 
         btnNext.Height = 90
+
+        btnNext.Cursor =
+            Cursors.Hand
 
         AddHandler btnNext.Click,
             AddressOf Next_Click
@@ -220,7 +275,7 @@ Public Class Form1
 
 
         '====================================================
-        ' CLEAR
+        ' CLEAR BUTTON
         '====================================================
 
         btnClear = New Button()
@@ -233,7 +288,8 @@ Public Class Form1
                 14,
                 FontStyle.Bold)
 
-        btnClear.ForeColor = Color.White
+        btnClear.ForeColor =
+            Color.White
 
         btnClear.BackColor =
             Color.FromArgb(240, 170, 40)
@@ -243,9 +299,13 @@ Public Class Form1
 
         btnClear.FlatAppearance.BorderSize = 0
 
-        btnClear.Dock = DockStyle.Top
+        btnClear.Dock =
+            DockStyle.Top
 
         btnClear.Height = 70
+
+        btnClear.Cursor =
+            Cursors.Hand
 
         AddHandler btnClear.Click,
             AddressOf Clear_Click
@@ -254,7 +314,7 @@ Public Class Form1
 
 
         '====================================================
-        ' CLOSE
+        ' CLOSE BUTTON
         '====================================================
 
         btnClose = New Button()
@@ -267,7 +327,8 @@ Public Class Form1
                 14,
                 FontStyle.Bold)
 
-        btnClose.ForeColor = Color.White
+        btnClose.ForeColor =
+            Color.White
 
         btnClose.BackColor =
             Color.FromArgb(80, 80, 80)
@@ -277,9 +338,13 @@ Public Class Form1
 
         btnClose.FlatAppearance.BorderSize = 0
 
-        btnClose.Dock = DockStyle.Bottom
+        btnClose.Dock =
+            DockStyle.Bottom
 
         btnClose.Height = 70
+
+        btnClose.Cursor =
+            Cursors.Hand
 
         AddHandler btnClose.Click,
             AddressOf Close_Click
@@ -290,7 +355,7 @@ Public Class Form1
 
 
     '========================================================
-    ' UP CLICK
+    ' UP BUTTON CLICK
     '========================================================
 
     Private Sub Up_Click(
@@ -305,7 +370,7 @@ Public Class Form1
 
 
     '========================================================
-    ' DOWN CLICK
+    ' DOWN BUTTON CLICK
     '========================================================
 
     Private Sub Down_Click(
@@ -332,13 +397,13 @@ Public Class Form1
         ClearSelection()
 
 
-        ' Create label
+        '====================================================
+        ' CREATE NEW LABEL
+        '====================================================
 
         Dim lbl As New Label()
 
-
         lbl.Text = text
-
 
         lbl.Font =
             New Font(
@@ -346,32 +411,34 @@ Public Class Form1
                 26,
                 FontStyle.Bold)
 
+        lbl.ForeColor =
+            textColor
 
-        lbl.ForeColor = textColor
-
-        lbl.BackColor = Color.White
-
+        lbl.BackColor =
+            Color.White
 
         lbl.TextAlign =
             ContentAlignment.MiddleCenter
 
-
-        ' Width of each item
+        ' Each item size
 
         lbl.Width = 150
 
         lbl.Height = 90
 
-
         lbl.Margin =
             New Padding(10)
-
 
         lbl.BorderStyle =
             BorderStyle.FixedSingle
 
+        lbl.Cursor =
+            Cursors.Hand
 
-        ' Click the item to select it
+
+        '====================================================
+        ' CLICK ITEM TO SELECT
+        '====================================================
 
         AddHandler lbl.Click,
             Sub()
@@ -381,26 +448,33 @@ Public Class Form1
             End Sub
 
 
-        ' Add to list
+        '====================================================
+        ' ADD TO LIST
+        '====================================================
 
         items.Add(lbl)
 
 
-        ' Add to UI
+        '====================================================
+        ' ADD TO CENTER AREA
+        '====================================================
 
         flowPanel.Controls.Add(lbl)
 
 
-        ' New item becomes selected
+        '====================================================
+        ' NEW ITEM = SELECTED
+        '====================================================
 
         currentIndex =
             items.Count - 1
 
-
         SelectItem(lbl)
 
 
-        ' Scroll to new item
+        '====================================================
+        ' SCROLL TO NEW ITEM
+        '====================================================
 
         flowPanel.ScrollControlIntoView(lbl)
 
@@ -414,7 +488,7 @@ Public Class Form1
     Private Sub SelectItem(
         lbl As Label)
 
-        ' Remove all previous selection
+        ' Remove old selection
 
         ClearSelection()
 
@@ -426,7 +500,6 @@ Public Class Form1
                 220,
                 235,
                 255)
-
 
         lbl.BorderStyle =
             BorderStyle.Fixed3D
@@ -467,10 +540,12 @@ Public Class Form1
         sender As Object,
         e As EventArgs)
 
-        ' Nothing to select
+        ' No items
 
         If items.Count = 0 Then
+
             Return
+
         End If
 
 
@@ -496,7 +571,7 @@ Public Class Form1
             items(currentIndex))
 
 
-        ' Automatically scroll
+        ' Scroll to selected item
 
         flowPanel.ScrollControlIntoView(
             items(currentIndex))
@@ -512,17 +587,17 @@ Public Class Form1
         sender As Object,
         e As EventArgs)
 
-        ' Remove all controls
+        ' Remove controls
 
         flowPanel.Controls.Clear()
 
 
-        ' Clear list
+        ' Clear item list
 
         items.Clear()
 
 
-        ' Reset selection
+        ' Reset selected index
 
         currentIndex = -1
 
