@@ -1,11 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+ 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>disable</Nullable>
     <RootNamespace>UPDOWN_TOOL</RootNamespace>
+    <AssemblyName>UPDOWN_TOOL</AssemblyName>
     <StartupObject>UPDOWN_TOOL.Program</StartupObject>
+    <OptionStrict>On</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
-
+ 
+  <ItemGroup>
+    <Compile Include="Program.vb" />
+    <Compile Include="Form1.vb" />
+  </ItemGroup>
+ 
 </Project>
