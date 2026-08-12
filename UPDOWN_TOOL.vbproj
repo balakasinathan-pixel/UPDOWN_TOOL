@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
- 
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
@@ -13,10 +13,5 @@
     <OptionExplicit>On</OptionExplicit>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
- 
-  <ItemGroup>
-    <Compile Include="Program.vb" />
-    <Compile Include="Form1.vb" />
-  </ItemGroup>
- 
+
 </Project>
