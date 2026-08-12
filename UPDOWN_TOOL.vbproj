@@ -6,7 +6,6 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>false</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <RootNamespace>UPDOWN_TOOL</RootNamespace>
     <AssemblyName>UPDOWN_TOOL</AssemblyName>
     <StartupObject>UPDOWN_TOOL.Program</StartupObject>
     <OptionStrict>On</OptionStrict>
